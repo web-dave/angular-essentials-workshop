@@ -1,0 +1,9 @@
+<div *ngIf="book">
+  <header>{{ book.title }}</header>
+  <img [src]="book.cover" [alt]="book.title" />
+  <p>
+    {{ book.abstract }} <span>{{ book.numPages | pages: "Seitenzahl" }}</span>
+  </p>
+  <p>{{ book.publisher }}</p>
+  <footer>{{ book.author }}</footer>
+</div>

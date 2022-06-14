@@ -1,0 +1,9 @@
+<ul *ngIf="books">
+  <a routerLink="new">NEW</a
+  ><br />
+  <app-book-preview
+    *ngFor="let book of books"
+    [book]="book"
+    (bookselected)="selectBook($event)"
+  ></app-book-preview>
+</ul>
