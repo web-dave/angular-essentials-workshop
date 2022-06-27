@@ -24,6 +24,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       enableTracing: false,
       preloadingStrategy: PreloadAllModules,
+      useHash: true,
     }),
   ],
   exports: [RouterModule],
