@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  s = true;
   title = 'angular-essential-workshop 🦄!!!!';
   edit = true;
   i = 0;
