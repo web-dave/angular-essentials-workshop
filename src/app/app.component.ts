@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   // template: `
   //   <input [value]="title" (input)="updateT($event)" />
+  //   <input value="title" (input)="updateT($event)" />
   //   <button (click)="baz($event)">{{ i }}</button>
   // `,
   styleUrls: ['./app.component.scss'],
