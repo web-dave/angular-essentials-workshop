@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class BookService {
-  root = 'http://localhost:4730/books';
+  private root = 'http://localhost:4730/books';
   constructor(private http: HttpClient) {}
   getBooks(): Observable<any> {
     return this.http.get(this.root);

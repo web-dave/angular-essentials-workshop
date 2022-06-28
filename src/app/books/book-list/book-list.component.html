@@ -1,1 +1,15 @@
-<p>book-list works!</p>
+<table>
+  <thead>
+    <th>Title</th>
+    <th>Link</th>
+  </thead>
+  <tbody>
+    <tr
+      [ngClass]="{ gold: i === 99, blue: true }"
+      *ngFor="let book of books; let i = index"
+    >
+      <td>{{ book.title }}</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
