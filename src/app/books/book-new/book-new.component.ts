@@ -24,6 +24,7 @@ export class BookNewComponent {
     private fb: NonNullableFormBuilder,
     private service: BookService
   ) {
+    setInterval(() => console.log(this.bookForm.value), 1500);
     this.bookForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(6)]],
       isbn: ['', [Validators.required, Validators.minLength(6)]],

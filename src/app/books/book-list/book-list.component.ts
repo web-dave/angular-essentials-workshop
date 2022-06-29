@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NEVER, Observable, Subscription } from 'rxjs';
 import { BookService } from '../book.service';
 import { IBook } from '../ibook';
 
@@ -10,11 +11,17 @@ import { IBook } from '../ibook';
 })
 export class BookListComponent implements OnInit {
   books: IBook[] = [];
+  books$: Observable<IBook[]> = NEVER;
   private observer = {
     next: (data: any) => (this.books = data),
     complete: () => console.log('DONE!'),
     error: (err: any) => console.error(err),
   };
+
+  foo() {
+    return 'öskdjhsökfdjhsöfdkj';
+  }
+
   constructor(
     private service: BookService,
     private router: Router,
@@ -25,6 +32,6 @@ export class BookListComponent implements OnInit {
     this.router.navigate([e.isbn], { relativeTo: this.route });
   }
   ngOnInit(): void {
-    this.service.getBooks().subscribe(this.observer);
+    this.books$ = this.service.getBooks(); //.subscribe(this.observer);
   }
 }
