@@ -1,4 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { emptyBook, IBook } from '../ibook';
+
+export type robert = number | undefined;
 
 @Component({
   selector: 'zs-book-preview,tr[zs-book-preview]',
@@ -6,8 +9,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./book-preview.component.scss'],
 })
 export class BookPreviewComponent {
-  @Input() book: any;
-  @Output() bookChanges = new EventEmitter();
+  @Input() book: IBook = emptyBook;
+  @Output() bookChanges = new EventEmitter<IBook>();
 
   ping() {
     this.bookChanges.emit(this.book);

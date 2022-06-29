@@ -8,6 +8,11 @@
     <!-- <tr *ngFor="let book of books">
       <zs-book-preview [book]="book"></zs-book-preview>
     </tr> -->
-    <tr zs-book-preview *ngFor="let book of books" [book]="book"></tr>
+    <tr
+      zs-book-preview
+      *ngFor="let book of books"
+      [book]="book"
+      (bookChanges)="ping($event)"
+    ></tr>
   </tbody>
 </table>
