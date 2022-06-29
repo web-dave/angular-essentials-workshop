@@ -1,0 +1,10 @@
+<!-- <p>book-details works!</p>
+<pre>{{ book | json }}</pre> -->
+
+<header>{{ book.title }}</header>
+<content
+  >{{ book.abstract }}
+  <br />
+  <img [src]="book.cover" [alt]="book.title" />
+</content>
+<footer>{{ book.author }}</footer>
