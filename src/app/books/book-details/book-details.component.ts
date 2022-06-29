@@ -13,10 +13,17 @@ export class BookDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: BookService) {}
 
   ngOnInit(): void {
+    console.log(this.route.snapshot);
     this.route.params.subscribe((params) =>
       this.service
         .getBook(params['isbn'])
         .subscribe((data) => (this.book = data))
     );
+
+    this.service
+      .getBook(this.route.snapshot.params['isbn'])
+      .subscribe((data) => {
+        this.book = data;
+      });
   }
 }
