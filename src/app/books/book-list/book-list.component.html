@@ -4,12 +4,10 @@
     <th>Link</th>
   </thead>
   <tbody>
-    <tr
-      [ngClass]="{ gold: i === 99, blue: true }"
-      *ngFor="let book of books; let i = index"
-    >
-      <td>{{ book.title }}</td>
-      <td></td>
-    </tr>
+    <!-- [ngClass]="{ gold: i === 99, blue: true }" -->
+    <!-- <tr *ngFor="let book of books">
+      <zs-book-preview [book]="book"></zs-book-preview>
+    </tr> -->
+    <tr zs-book-preview *ngFor="let book of books" [book]="book"></tr>
   </tbody>
 </table>
