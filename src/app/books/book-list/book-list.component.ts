@@ -16,4 +16,7 @@ export class BookListComponent implements OnInit {
       complete: () => console.log('DONE'),
     });
   }
+  showBook(b: any) {
+    console.log(b);
+  }
 }
