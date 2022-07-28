@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookService } from '../book.service';
 
 @Component({
@@ -9,11 +9,22 @@ import { BookService } from '../book.service';
 })
 export class BookNewComponent implements OnInit {
   bookForm: FormGroup = new FormGroup({});
+  formFields = [
+    'title',
+    'subtitle',
+    'isbn',
+    'abstract',
+    'numPages',
+    'author',
+    'publisher',
+    'price',
+    'cover',
+  ];
   constructor(private builder: FormBuilder, private service: BookService) {}
 
   ngOnInit(): void {
     this.bookForm = this.builder.group({
-      title: ['', []],
+      title: ['', [Validators.required]],
       subtitle: ['', []],
       isbn: ['', []],
       abstract: ['', []],
@@ -24,6 +35,18 @@ export class BookNewComponent implements OnInit {
       cover: ['', []],
       id: [0, []],
     });
+    this.bookForm.controls['title'].statusChanges.subscribe((value: string) => {
+      console.log(value);
+    });
+    this.bookForm.controls['subtitle'].valueChanges.subscribe(
+      (value: string) => {
+        if (value.length >= 3) {
+          this.bookForm.controls['price'].setValue('7,99');
+        } else {
+          this.bookForm.controls['price'].setValue('');
+        }
+      }
+    );
   }
 
   saveBook() {

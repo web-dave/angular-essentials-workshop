@@ -1,4 +1,5 @@
 <ul *ngIf="book">
   <li>{{ book.title }}</li>
   <li>{{ book.isbn }}<button (click)="selectThisBook()">👁️</button></li>
+  <li *ngIf="showAb">{{ book.abstract }}</li>
 </ul>

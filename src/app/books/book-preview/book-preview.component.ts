@@ -7,9 +7,11 @@ import { IBook } from '../IBook.interface';
   styleUrls: ['./book-preview.component.scss'],
 })
 export class BookPreviewComponent {
+  showAb = false;
   @Input() book: IBook | undefined;
   @Output() bookSelected = new EventEmitter<IBook>();
   selectThisBook() {
-    this.bookSelected.emit(this.book);
+    this.showAb = !this.showAb;
+    // this.bookSelected.emit(this.book);
   }
 }
