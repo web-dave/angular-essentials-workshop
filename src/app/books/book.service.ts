@@ -19,4 +19,9 @@ export class BookService {
     const url = this.restRoot;
     return this.http.get<IBook>(url + '/' + isbn);
   }
+
+  createBook(book: IBook): Observable<IBook> {
+    const url = this.restRoot;
+    return this.http.post<IBook>(url, book);
+  }
 }
