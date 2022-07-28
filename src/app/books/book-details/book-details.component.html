@@ -1,0 +1,13 @@
+<!-- <pre>
+
+{{ book | json }}
+
+</pre> -->
+
+<div *ngIf="book">
+  <header>{{ book.title }}</header>
+  <img [src]="book.cover" [alt]="book.title" />
+  <p>{{ book.abstract }}</p>
+  <p>{{ book.publisher }}</p>
+  <footer>{{ book.author }}</footer>
+</div>
