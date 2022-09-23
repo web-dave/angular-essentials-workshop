@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { BookListComponent } from './books/book-list/book-list.component';
 import { BooksComponent } from './books/books.component';
 
 const routes: Routes = [
   {
     path: 'books',
     component: BooksComponent,
+    children: [
+      {
+        path: '',
+        component: BookListComponent,
+      },
+    ],
   },
   {
     path: 'about',
