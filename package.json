@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "prefoo": "echo pre",
+    "foo": "echo Hallo",
+    "postfoo": "echo post"
   },
   "private": true,
   "dependencies": {
