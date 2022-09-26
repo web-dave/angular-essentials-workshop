@@ -1,3 +1,8 @@
 <ul>
-  <li *ngFor="let book of books">{{ book.title }}</li>
+  <app-book-preview
+    [book]="book"
+    (bookSelected)="goToBook($event)"
+    *ngFor="let book of books"
+    >{{ book.title }}</app-book-preview
+  >
 </ul>

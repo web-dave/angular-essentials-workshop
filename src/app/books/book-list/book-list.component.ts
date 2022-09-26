@@ -15,4 +15,8 @@ export class BookListComponent implements OnInit {
       next: (data) => (this.books = data),
     });
   }
+
+  goToBook(b: any) {
+    console.log(b);
+  }
 }
