@@ -15,9 +15,10 @@ export class BookService {
       catchError((err) => of([]))
     );
   }
-  // getBook(): Observable<IBook> {
-  //   return this.http
-  //     .get<IBook>('http://localhost:4730/books')
-  //     .pipe(retry({ count: 2, delay: 1500 }));
-  // }
+
+  getBook(isbn: string): Observable<IBook> {
+    return this.http
+      .get<IBook>('http://localhost:4730/books/' + isbn)
+      .pipe(retry({ count: 2, delay: 1500 }));
+  }
 }

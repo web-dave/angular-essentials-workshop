@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IBook } from '../book.interface';
 import { BookService } from '../book.service';
 
@@ -9,7 +10,11 @@ import { BookService } from '../book.service';
 })
 export class BookListComponent implements OnInit {
   books: IBook[] = [];
-  constructor(private service: BookService) {}
+  constructor(
+    private service: BookService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.service.getBooks().subscribe({
@@ -18,6 +23,7 @@ export class BookListComponent implements OnInit {
   }
 
   goToBook(b: IBook) {
+    this.router.navigate([b.isbn], { relativeTo: this.route });
     console.log(b);
   }
 }
