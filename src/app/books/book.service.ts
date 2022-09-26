@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, retry, catchError, of } from 'rxjs';
+import { IBook } from './book.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -8,10 +9,15 @@ import { Observable, retry, catchError, of } from 'rxjs';
 export class BookService {
   constructor(private http: HttpClient) {}
 
-  getBooks(): Observable<any> {
-    return this.http.get<any>('http://localhost:4730/books').pipe(
+  getBooks(): Observable<IBook[]> {
+    return this.http.get<IBook[]>('http://localhost:4730/books').pipe(
       retry({ count: 2, delay: 1500 }),
       catchError((err) => of([]))
     );
   }
+  // getBook(): Observable<IBook> {
+  //   return this.http
+  //     .get<IBook>('http://localhost:4730/books')
+  //     .pipe(retry({ count: 2, delay: 1500 }));
+  // }
 }

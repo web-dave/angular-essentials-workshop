@@ -1,3 +1,5 @@
-<strong>{{ book.title }}</strong>
-<small [innerText]="book.isbn"></small>
-<button (click)="selectThisBook()">👁️</button>
+<ng-container *ngIf="book">
+  <strong>{{ book.title }}</strong>
+  <small [innerText]="book.isbn"></small>
+  <button (click)="selectThisBook()">👁️</button>
+</ng-container>
