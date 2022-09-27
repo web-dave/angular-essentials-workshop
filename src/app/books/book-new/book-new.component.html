@@ -1,0 +1,9 @@
+<pre>{{ bookForm.value | json }}</pre>
+<button (click)="addFoo()">Add FOO</button>
+<form [formGroup]="bookForm">
+  <div *ngFor="let key of keys">
+    <label [for]="key">{{ key | uppercase }}</label
+    ><br />
+    <input [type]="config[key]" [formControlName]="key" />
+  </div>
+</form>
