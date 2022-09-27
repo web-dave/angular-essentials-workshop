@@ -1,5 +1,5 @@
 <a routerLink="new">➕</a>
-<ul>
+<ul *ngIf="books.length >= 1; else offline">
   <app-book-preview
     [book]="book"
     (bookSelected)="goToBook($event)"
@@ -7,3 +7,6 @@
     >{{ book.title }}</app-book-preview
   >
 </ul>
+<ng-template #offline>{{
+  online ? "keine Bücher" : "Du bins Offline"
+}}</ng-template>

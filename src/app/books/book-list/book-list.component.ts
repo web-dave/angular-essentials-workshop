@@ -10,11 +10,14 @@ import { BookService } from '../book.service';
 })
 export class BookListComponent implements OnInit {
   books: IBook[] = [];
+  online: boolean = true;
   constructor(
     private service: BookService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    this.online = navigator.onLine;
+  }
 
   ngOnInit(): void {
     this.service.getBooks().subscribe({
