@@ -6,9 +6,10 @@ import { BooksComponent } from './books.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookPreviewComponent } from './book-preview/book-preview.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { PagesPipe } from './pages.pipe';
 
 @NgModule({
-  declarations: [BooksComponent, BookListComponent, BookPreviewComponent, BookDetailsComponent],
+  declarations: [BooksComponent, BookListComponent, BookPreviewComponent, BookDetailsComponent, PagesPipe],
   exports: [BooksComponent],
   imports: [CommonModule, BooksRoutingModule],
 })
