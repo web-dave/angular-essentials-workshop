@@ -12,7 +12,7 @@ export class BookListComponent implements OnInit {
   books: IBook[] = [];
   constructor(
     private bookService: BookService,
-    private router: Router,
+    public router: Router,
     private route: ActivatedRoute
   ) {}
 
