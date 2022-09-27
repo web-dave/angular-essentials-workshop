@@ -1,0 +1,22 @@
+<p>book-edit works!</p>
+<form
+  #editForm="ngForm"
+  *ngIf="book$ | async as book"
+  (ngSubmit)="saveBook(book)"
+>
+  <pre>{{ book | json }}</pre>
+  <hr />
+  <pre>{{ editForm.value | json }}</pre>
+
+  <input
+    type="text"
+    required
+    minlength="2"
+    name="title"
+    #title="ngModel"
+    [(ngModel)]="book.title"
+  />
+  <span *ngIf="title.invalid">⚡</span>
+  <hr />
+  <button type="submit" [disabled]="!editForm.valid">Save</button>
+</form>
